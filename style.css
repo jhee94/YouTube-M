@@ -1,0 +1,260 @@
+:root {
+  /* color */
+  --white-color: #ffffff;
+  --black-color: #140a00;
+  --blue-color: #065fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+  /* size */
+  --padding: 12px;
+  --avatar-size: 36px;
+  --icon-size: 16px;
+  /* Font size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: inherit;
+  color: inherit;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+  /* width: 100%;
+  height: 56px; */
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo i {
+  color: var(--red-color);
+}
+
+header .icons {
+  display: flex;
+}
+
+header .icons .fa-search {
+  margin-right: var(--padding);
+}
+
+/* Video Player */
+.player {
+  position: sticky;
+  top: 0;
+  /* sticky는 위치를 지정해줘야 적용된다 */
+  text-align: center;
+  background-color: var(--black-color);
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
+
+/* Video Info */
+.info {
+  padding: var(--padding);
+}
+
+.info .metadata .hashtag {
+  display: flex;
+  font-size: var(--font-small);
+  color: var(--blue-color);
+}
+
+.info .metadata .hashtag li {
+  margin-right: var(--padding);
+}
+
+.info .metadata .titleAndBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info .metadata .titleAndBtn .title {
+  font-size: var(--font-medium);
+}
+
+.info .metadata .titleAndBtn .title.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.info .metadata .titleAndBtn .moreBtn {
+  height: 100%;
+  transition: transform 300 ease-in-out;
+}
+
+.info .metadata .titleAndBtn .moreBtn.clicked {
+  transform: rotate(180deg);
+}
+
+.info .views {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+/* Action Buttons */
+.info .actions {
+  display: flex;
+  justify-content: space-around;
+  margin: var(--padding) 0;
+}
+
+.info .actions li {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+}
+
+.info .actions li i {
+  margin: 0 auto;
+  margin-bottom: calc(var(--padding) / 2);
+  font-size: var(--icon-size);
+  color: var(--grey-dark-color);
+}
+
+.info .actions li span {
+  color: var(--grey-dark-color);
+}
+
+.info .actions li .thumbs {
+  transition: 0.3s;
+}
+
+.info .actions li .thumbs.active {
+  color: var(--blue-color);
+}
+
+/* Channel Description */
+.info .channel {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+}
+
+.info .channel .profile {
+  display: flex;
+  align-items: center;
+}
+
+.info .channel .profile img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
+
+.info .channel .profile .info .name {
+  font-size: var(--font-medium);
+}
+
+.info .channel .profile .info .subscribers {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.info .channel .subscribe {
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+/* Up Next */
+.UpNext {
+  padding: 0 var(--padding);
+}
+
+.UpNext > .title {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+  margin-bottom: calc(var(--padding) / 2);
+}
+
+.UpNext li a {
+  display: flex;
+}
+
+.UpNext li .img {
+  flex: 1 1 35%;
+  margin-right: var(--padding);
+}
+
+.UpNext li .img img {
+  width: 100%;
+}
+
+.UpNext li .info {
+  flex: 1 1 60%;
+  padding: 0;
+}
+
+.UpNext li .moreBtn {
+  flex: 1 1 5%;
+}
+
+.UpNext li .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.UpNext li .info .title {
+  font-size: var(--font-small);
+}
+
+.UpNext li .info .name,
+.UpNext li .info .views {
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+  }
+  .UpNext {
+    margin: var(--padding) 0;
+  }
+}
